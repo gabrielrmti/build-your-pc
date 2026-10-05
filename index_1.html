@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TechBuild: monte seu PC, confira a compatibilidade das peças e veja onde comprar.">
+  <title>TechBuild — Monte seu PC</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <a href="#conteudo" class="pular-link">Pular para o conteúdo</a>
+
+  <!-- ===== Barra de acessibilidade ===== -->
+  <div class="barra-acessibilidade" role="region" aria-label="Opções de acessibilidade">
+    <div class="barra-interna">
+      <span class="barra-titulo" aria-hidden="true"> Acessibilidade</span>
+
+      <div class="grupo-fonte" role="group" aria-label="Tamanho do texto">
+        <button type="button" class="btn-a11y" id="fonteMenor" aria-label="Diminuir texto">A−</button>
+        <button type="button" class="btn-a11y" id="fonteReset" aria-label="Tamanho de texto padrão">A</button>
+        <button type="button" class="btn-a11y" id="fonteMaior" aria-label="Aumentar texto">A+</button>
+        <span class="fonte-valor" id="fonteValor" aria-live="polite">100%</span>
+      </div>
+
+      <button type="button" class="btn-a11y" id="btnTema" aria-pressed="false">
+        <span aria-hidden="true" id="iconeTema"></span> <span id="textoTema">Modo claro</span>
+      </button>
+
+      <button type="button" class="btn-a11y" id="btnContraste" aria-pressed="false">
+        <span aria-hidden="true">◐</span> Alto contraste
+      </button>
+
+      <button type="button" class="btn-a11y" id="btnLeitura" aria-pressed="false">
+        <span aria-hidden="true">¶</span> Leitura facilitada
+      </button>
+
+      <button type="button" class="btn-a11y" id="btnMovimento" aria-pressed="false">
+        <span aria-hidden="true">⏸</span> Reduzir animações
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== Cabeçalho ===== -->
+  <header class="topo">
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#" class="logo"><span aria-hidden="true">⚙</span> Tech<strong>Build</strong></a>
+      <ul class="nav-links">
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#montador">Montar PC</a></li>
+        <li><a href="#orcamento">Orçamento</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero-texto">
+        <p class="hero-tag">Simulador de montagem</p>
+        <h1 id="hero-titulo">Monte o PC dos seus sonhos <span>sem errar nas peças</span></h1>
+        <p class="hero-sub">
+          Escolha cada componente, veja na hora se tudo é compatível e descubra
+          quanto vai gastar — com links diretos para as lojas.
+        </p>
+        <div class="hero-acoes">
+          <a href="#montador" class="btn btn-primario">Começar a montar</a>
+          <a href="#como-funciona" class="btn btn-secundario">Como funciona</a>
+        </div>
+      </div>
+
+      <ul class="hero-numeros" aria-label="Destaques">
+        <li><strong>3</strong> verificações de compatibilidade</li>
+        <li><strong>20+</strong> peças no catálogo</li>
+        <li><strong>3</strong> lojas parceiras</li>
+      </ul>
+    </section>
+
+    <!-- ===== Conteúdo: como funciona ===== -->
+    <section id="como-funciona" class="secao" aria-labelledby="como-titulo">
+      <h2 id="como-titulo">Como funciona</h2>
+      <ol class="passos">
+        <li class="passo">
+          <span class="passo-num" aria-hidden="true">1</span>
+          <h3>Escolha as peças</h3>
+          <p>Selecione processador, placa-mãe, memória, placa de vídeo, SSD e fonte — ou comece por uma build pronta.</p>
+        </li>
+        <li class="passo">
+          <span class="passo-num" aria-hidden="true">2</span>
+          <h3>Confira a compatibilidade</h3>
+          <p>Verificamos soquete do processador, tipo de memória (DDR4/DDR5) e se a fonte aguenta o consumo.</p>
+        </li>
+        <li class="passo">
+          <span class="passo-num" aria-hidden="true">3</span>
+          <h3>Compre ou peça um orçamento</h3>
+          <p>Cada peça tem um link para a loja. Se preferir, envie a build e receba um orçamento por e-mail.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== Montador ===== -->
+    <section id="montador" class="secao" aria-labelledby="montador-titulo">
+      <h2 id="montador-titulo">Monte seu PC</h2>
+
+      <div class="presets" role="group" aria-label="Builds prontas">
+        <span class="presets-rotulo">Builds prontas:</span>
+        <button type="button" class="chip" data-preset="entrada"> Entrada</button>
+        <button type="button" class="chip" data-preset="equilibrada"> Equilibrada</button>
+        <button type="button" class="chip" data-preset="entusiasta"> Entusiasta</button>
+      </div>
+
+      <div class="montador-grid">
+        <form id="formBuild" class="card" novalidate aria-describedby="dica-form">
+          <fieldset>
+            <legend>Componentes</legend>
+            <p id="dica-form" class="dica">O resumo atualiza automaticamente a cada escolha.</p>
+
+            <div class="campo">
+              <label for="processador">Processador (CPU)</label>
+              <select id="processador" name="processador" data-categoria="processador" aria-describedby="msg-processador">
+                <option value="">-- Selecione --</option>
+              </select>
+              <p class="campo-msg" id="msg-processador"></p>
+            </div>
+
+            <div class="campo">
+              <label for="placaMae">Placa-mãe</label>
+              <select id="placaMae" name="placaMae" data-categoria="placaMae" aria-describedby="msg-placaMae">
+                <option value="">-- Selecione --</option>
+              </select>
+              <p class="campo-msg" id="msg-placaMae"></p>
+            </div>
+
+            <div class="campo">
+              <label for="ram">Memória RAM</label>
+              <select id="ram" name="ram" data-categoria="ram" aria-describedby="msg-ram">
+                <option value="">-- Selecione --</option>
+              </select>
+              <p class="campo-msg" id="msg-ram"></p>
+            </div>
+
+            <div class="campo">
+              <label for="gpu">Placa de vídeo (GPU)</label>
+              <select id="gpu" name="gpu" data-categoria="gpu" aria-describedby="msg-gpu">
+                <option value="">-- Selecione --</option>
+              </select>
+              <p class="campo-msg" id="msg-gpu"></p>
+            </div>
+
+            <div class="campo">
+              <label for="ssd">Armazenamento (SSD)</label>
+              <select id="ssd" name="ssd" data-categoria="ssd" aria-describedby="msg-ssd">
+                <option value="">-- Selecione --</option>
+              </select>
+              <p class="campo-msg" id="msg-ssd"></p>
+            </div>
+
+            <div class="campo">
+              <label for="fonte">Fonte</label>
+              <select id="fonte" name="fonte" data-categoria="fonte" aria-describedby="msg-fonte">
+                <option value="">-- Selecione --</option>
+              </select>
+              <p class="campo-msg" id="msg-fonte"></p>
+            </div>
+          </fieldset>
+
+          <div class="form-acoes">
+            <button type="button" class="btn btn-secundario" id="btnLimpar">Limpar</button>
+          </div>
+        </form>
+
+        <aside class="card resumo" aria-labelledby="resumo-titulo">
+          <h3 id="resumo-titulo">Resumo do PC</h3>
+
+          <div id="statusCompat" class="status status-neutro" role="status" aria-live="polite">
+            Escolha os componentes para começar.
+          </div>
+
+          <ul id="listaResumo" class="lista-resumo"></ul>
+
+          <div class="consumo" id="consumo" hidden>
+            <div class="consumo-topo">
+              <span>Consumo estimado</span>
+              <span id="consumoTexto"></span>
+            </div>
+            <div class="medidor" role="meter" id="medidor" aria-label="Uso da fonte" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="medidor-barra" id="medidorBarra"></div>
+            </div>
+          </div>
+
+          <div class="total">
+            <span>Total</span>
+            <strong id="total">R$ 0,00</strong>
+          </div>
+
+          <a href="#orcamento" class="btn btn-primario btn-bloco" id="btnIrOrcamento">Pedir orçamento desta build</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Formulário de orçamento ===== -->
+    <section id="orcamento" class="secao" aria-labelledby="orcamento-titulo">
+      <h2 id="orcamento-titulo">Receba um orçamento</h2>
+      <p class="secao-sub">Enviamos a sua build com o melhor preço encontrado. Campos com * são obrigatórios.</p>
+
+      <form id="formOrcamento" class="card form-orcamento" novalidate>
+        <div class="campo">
+          <label for="nome">Nome *</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" required minlength="3" aria-describedby="erro-nome">
+          <p class="campo-msg" id="erro-nome"></p>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="erro-email">
+          <p class="campo-msg" id="erro-email"></p>
+        </div>
+
+        <div class="campo">
+          <label for="uso">Uso principal</label>
+          <select id="uso" name="uso">
+            <option value="jogos">Jogos</option>
+            <option value="trabalho">Trabalho / escritório</option>
+            <option value="edicao">Edição de vídeo e 3D</option>
+            <option value="estudos">Estudos</option>
+          </select>
+        </div>
+
+        <div class="campo campo-largo">
+          <label for="mensagem">Observações</label>
+          <textarea id="mensagem" name="mensagem" rows="4" maxlength="300" aria-describedby="contador"></textarea>
+          <p class="contador" id="contador" aria-live="polite">0 / 300 caracteres</p>
+        </div>
+
+        <div class="campo campo-largo">
+          <label class="check">
+            <input type="checkbox" id="incluirBuild" name="incluirBuild" checked>
+            Incluir a build montada acima no pedido
+          </label>
+        </div>
+
+        <div class="campo-largo">
+          <button type="submit" class="btn btn-primario">Enviar pedido</button>
+        </div>
+
+        <div id="feedbackOrcamento" class="status campo-largo" role="status" aria-live="polite" hidden></div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>TechBuild © 2026 — projeto acadêmico. Preços e links meramente ilustrativos.</p>
+    <a href="#" class="voltar-topo">Voltar ao topo ↑</a>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
