@@ -76,7 +76,7 @@ Projeto acadêmico de Desenvolvimento Web, orientado pelo professor **Nome do Pr
 
 ### Participantes
 
-- **Gabriel Ramalho** — [GitHub](https://github.com/SEU-USUARIO)
+- **Gabriel Ramalho** — [GitHub](https://github.com/gabrielrmti)
 
 ---
 
