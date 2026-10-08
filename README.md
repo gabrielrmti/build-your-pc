@@ -77,6 +77,10 @@ Projeto acadêmico de Desenvolvimento Web, orientado pelo professor **Nome do Pr
 ### Participantes
 
 - **Gabriel Ramalho** — [GitHub](https://github.com/gabrielrmti)
+- **Júlio César** — [GitHub](https://github.com/julio-cesar41)
+- **Matheus Felipe** — [GitHub](https://github.com/Mv-008)
+- **Marco Vinícius** — [GitHub](https://github.com/Matheus-Cirne)
+- **Davi Felix** — [GitHub](https://github.com/davifelixstar)
 
 ---
 
